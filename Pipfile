@@ -1,0 +1,24 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+requests = "==2.32.3"
+fastapi = {extras = ["standard"], version = "==0.115"}
+
+[dev-packages]
+pre-commit = "==4.0.1"
+pytest-cov = "==6.0.0"
+pytest = "==8.3.4"
+pylint = "==3.3.3"
+ruff = "==0.8.4"
+
+[requires]
+python_version = "3.12"
+python_full_version = "3.12.5"
+
+[scripts]
+format = "pre-commit run --all-files"
+test = "pytest --cov=vcr_showcase --cov-report term-missing:skip-covered --cov-report xml:coverage-report.xml --junitxml=coverage.xml tests"
+dev = "fastapi dev vcr_showcase/main.py"
