@@ -4,7 +4,6 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-requests = "==2.32.3"
 fastapi = {extras = ["standard"], version = "==0.115"}
 
 [dev-packages]
