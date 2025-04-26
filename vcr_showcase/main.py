@@ -3,6 +3,7 @@ from typing import Any
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+from fastapi.responses import RedirectResponse
 
 from .routers.users import router as users_router
 
@@ -18,9 +19,14 @@ app.add_middleware(
 )
 
 
+@app.get("/status")
+def status() -> JSONResponse:
+    return JSONResponse(content={"status": "ok"})
+
+
 @app.get("/")
-def status():
-    return {"Status": "OK"}
+def docs() -> RedirectResponse:
+    return RedirectResponse("/docs")
 
 
 @app.exception_handler(HTTPException)

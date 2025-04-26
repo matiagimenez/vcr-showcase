@@ -1,11 +1,7 @@
 from uuid import UUID
-
-from fastapi import APIRouter
-
+from fastapi import APIRouter, status, HTTPException
 from vcr_showcase.data import USERS
 from vcr_showcase.models import User
-
-from .helper import get_user_by_id
 
 router = APIRouter(prefix="/api/users")
 
@@ -17,4 +13,8 @@ def get_all_users() -> list[User]:
 
 @router.get("/{user_id}")
 def get_user(user_id: UUID) -> User:
-    return get_user_by_id(user_id=user_id)
+    user = next((user for user in USERS if user.id_ == user_id), None)
+    if not user:
+        exception = f"User not found withg id {user_id}"
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=exception)
+    return user
