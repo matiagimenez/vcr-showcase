@@ -5,6 +5,5 @@ This repository demonstrates how to use [VCR.py](https://github.com/kevin1024/vc
 ## 📦 What’s Inside
 
 - Basic usage of `vcr` with `pytest`
-- Example using the `requests` library
 - Automatically records HTTP responses to cassette files (`.yaml`)
 - Replays responses on future test runs, avoiding real network calls
