@@ -1,13 +1,12 @@
-from vcr_showcase.models import User, UserList
-import pytest
 from typing import Any
+import pytest
 from polyfactory.factories.pydantic_factory import ModelFactory
 from polyfactory.pytest_plugin import register_fixture
+from vcr_showcase.models import User, UserList
 
 
 @register_fixture(name="user_factory")
-class UserFactory(ModelFactory[User]):
-    ...
+class UserFactory(ModelFactory[User]): ...
 
 
 @pytest.fixture

@@ -1,9 +1,7 @@
 from typing import Any
-from uuid import UUID
 from fastapi import APIRouter
-from vcr_showcase.models import User, UserList, LoginInformation
 import requests
-
+from vcr_showcase.models import User, UserList, LoginInformation
 from vcr_showcase.settings import Settings
 
 router = APIRouter(prefix="/api/users")

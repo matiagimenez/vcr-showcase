@@ -32,8 +32,7 @@ def docs() -> RedirectResponse:
 @app.exception_handler(HTTPException)
 def http_exception_handler(_, exception: HTTPException) -> JSONResponse:
     return JSONResponse(
-        status_code=exception.status_code, content={
-            "message": exception.detail}
+        status_code=exception.status_code, content={"message": exception.detail}
     )
 
 
