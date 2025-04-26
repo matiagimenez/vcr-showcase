@@ -5,7 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from fastapi.responses import RedirectResponse
 
-from .routers.users import router as users_router
+from vcr_showcase.api.endpoints.users import router as users_router
 
 app = FastAPI()
 app.include_router(users_router)
@@ -32,7 +32,8 @@ def docs() -> RedirectResponse:
 @app.exception_handler(HTTPException)
 def http_exception_handler(_, exception: HTTPException) -> JSONResponse:
     return JSONResponse(
-        status_code=exception.status_code, content={"message": exception.detail}
+        status_code=exception.status_code, content={
+            "message": exception.detail}
     )
 
 

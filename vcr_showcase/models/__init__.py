@@ -1,3 +1,3 @@
-from .user import User, UserValidator
+from .user import User, UserList, LoginInformation
 
-__all__ = ["User", "UserValidator"]
+__all__ = ["User", "UserList", "LoginInformation"]
