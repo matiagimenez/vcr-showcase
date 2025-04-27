@@ -1,5 +1,4 @@
 from typing import Any, Generator
-from unittest.mock import MagicMock, patch
 import pytest
 from requests_mock import Mocker
 from vcr_showcase.settings import Settings
@@ -20,7 +19,6 @@ def _patch_get_user_by_id(
 def _patch_get_users(
     many_users_as_dict: dict[str, Any],
     requests_mock: Mocker,
-
 ) -> Generator[None, None, None]:
     url = f"{Settings.API_URL}/users"
     requests_mock.get(url, json={"users": many_users_as_dict})

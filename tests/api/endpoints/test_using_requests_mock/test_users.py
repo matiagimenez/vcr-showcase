@@ -1,5 +1,6 @@
 from typing import Any
 from fastapi.testclient import TestClient
+from fastapi import status
 import pytest
 
 
@@ -8,7 +9,7 @@ def test_get_all_users(
     test_client: TestClient, many_users_as_dict: dict[str, Any]
 ) -> None:
     response = test_client.get("/api/users/")
-    assert response.status_code == 200
+    assert response.status_code == status.HTTP_200_OK
     assert response.json() == many_users_as_dict
 
 
@@ -18,5 +19,5 @@ def test_get_user_by_id(
 ) -> None:
     response = test_client.get(f"/api/users/{user_id}")
     print(f"response: {response.json()}")
-    assert response.status_code == 200
+    assert response.status_code == status.HTTP_200_OK
     assert response.json() == user_as_dict
