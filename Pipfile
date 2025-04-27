@@ -16,6 +16,7 @@ pylint = "==3.3.3"
 ruff = "==0.8.4"
 polyfactory = "==2.21.0"
 requests-mock = "==1.12.1"
+pytest-recording = "==0.13.3"
 
 [requires]
 python_version = "3.12"
