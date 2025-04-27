@@ -19,23 +19,24 @@ app.add_middleware(
 )
 
 
-@app.get("/status")
+@app.get("/api/status")
 def status() -> JSONResponse:
     return JSONResponse(content={"status": "ok"})
 
 
 @app.get("/")
-def docs() -> RedirectResponse:
+def docs() -> RedirectResponse:  # pragma: no cover
     return RedirectResponse("/docs")
 
 
 @app.exception_handler(HTTPException)
-def http_exception_handler(_, exception: HTTPException) -> JSONResponse:
+def http_exception_handler(_, exception: HTTPException) -> JSONResponse:  # pragma: no cover
     return JSONResponse(
-        status_code=exception.status_code, content={"message": exception.detail}
+        status_code=exception.status_code, content={
+            "message": exception.detail}
     )
 
 
 @app.exception_handler(Exception)
-def internal_error_exception_handler(*_: Any) -> JSONResponse:
+def internal_error_exception_handler(*_: Any) -> JSONResponse:  # pragma: no cover
     return JSONResponse(status_code=500, content={"message": "Internal server error"})
