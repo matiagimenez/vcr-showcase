@@ -15,6 +15,7 @@ pytest = "==8.3.4"
 pylint = "==3.3.3"
 ruff = "==0.8.4"
 polyfactory = "==2.21.0"
+requests-mock = "==1.12.1"
 
 [requires]
 python_version = "3.12"
