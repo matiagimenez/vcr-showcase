@@ -4,9 +4,9 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-fastapi = {extras = ["standard"], version = "==0.115"}
-requests = "==2.32.3"
-pydantic-settings = "==2.9.1"
+fastapi = {extras = ["standard"], version = "~=0.115"}
+requests = "~=2.32"
+pydantic-settings = "~=2.9"
 
 [dev-packages]
 pre-commit = "==4.0.1"
