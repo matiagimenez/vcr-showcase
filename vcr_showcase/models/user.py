@@ -98,7 +98,7 @@ class User(BaseModel):
     )
 
 
-class LoginInformation(BaseModel):
+class UserLoginInformation(BaseModel):
     username: str
     password: str
 

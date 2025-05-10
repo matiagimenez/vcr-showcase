@@ -1,7 +1,7 @@
 from typing import Any
 from fastapi import APIRouter
 import requests
-from vcr_showcase.models import User, UserList, LoginInformation
+from vcr_showcase.models import User, UserList, UserLoginInformation
 from vcr_showcase.settings import Settings
 
 router = APIRouter(prefix="/api/users")
@@ -22,7 +22,7 @@ def get_user(user_id: int) -> User:
 
 
 @router.post("/login")
-def login(login_information: LoginInformation) -> Any:
+def login(login_information: UserLoginInformation) -> Any:
     data = login_information.model_dump()
     response = requests.post(f"{Settings.API_URL}/user/login", json=data)
     return response.json()

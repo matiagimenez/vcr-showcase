@@ -3,6 +3,7 @@ import pytest
 from polyfactory.factories.pydantic_factory import ModelFactory
 from polyfactory.pytest_plugin import register_fixture
 from vcr_showcase.models import User, UserList
+from vcr_showcase.models.user import UserLoginInformation
 
 
 @register_fixture(name="user_factory")
@@ -32,3 +33,8 @@ def user_as_dict(user: User) -> dict[str, Any]:
 @pytest.fixture
 def many_users_as_dict(many_users: list[User]) -> dict[str, Any]:
     return UserList.dump_python(many_users, by_alias=True)
+
+
+@pytest.fixture
+def login_information() -> UserLoginInformation:
+    return UserLoginInformation(username="emilys", password="emilyspass")

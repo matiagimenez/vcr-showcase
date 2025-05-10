@@ -30,10 +30,11 @@ def docs() -> RedirectResponse:  # pragma: no cover
 
 
 @app.exception_handler(HTTPException)
-def http_exception_handler(_, exception: HTTPException) -> JSONResponse:  # pragma: no cover
+def http_exception_handler(
+    _, exception: HTTPException
+) -> JSONResponse:  # pragma: no cover
     return JSONResponse(
-        status_code=exception.status_code, content={
-            "message": exception.detail}
+        status_code=exception.status_code, content={"message": exception.detail}
     )
 
 
